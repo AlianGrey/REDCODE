@@ -1,4 +1,4 @@
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.svg';
 import onlink from '../../assets/images/header_onlink.png';
 import Navigation from '../Navigation/Navigation.jsx';
 import { Link } from 'react-router-dom';

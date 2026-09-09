@@ -1,4 +1,5 @@
 :root {
+
 /* Color styles */
 --basic-black: rgba(0, 0, 0, 1);
 --basic-grey: rgba(232, 231, 232, 1);
@@ -26,36 +27,14 @@
 --body-grey-text: rgba(83, 83, 83, 1);
 
   /* Text Styles */
-  --font-family-input-text: "Inter";
-  --font-size-input-text: 16pxpx;
-  --font-weight-input-text: 400;
-  --font-family-font-awesome-icon: "Font Awesome 5 Free";
-  --font-size-font-awesome-icon: 20pxpx;
-  --font-weight-font-awesome-icon: 400;
-  --font-family-font-awesome-icon-17: "Font Awesome 5 Free";
-  --font-size-font-awesome-icon-17: 17pxpx;
-  --font-weight-font-awesome-icon-17: 400;
-  --font-family-title-h2: "Inter";
-  --font-size-title-h2: 25pxpx;
-  --font-weight-title-h2: 400;
-  --font-family-title-h1-black: "Exo";
-  --font-size-title-h1-black: 32pxpx;
-  --font-weight-title-h1-black: 600;
-  --font-family-title-h1-grey: "Exo";
-  --font-size-title-h1-grey: 32pxpx;
-  --font-weight-title-h1-grey: 600;
-  --font-family-body: "Inter";
-  --font-size-body: 20pxpx;
-  --font-weight-body: 400;
-  --font-family-mobile-region-title: "Exo";
-  --font-size-mobile-region-title: 25pxpx;
-  --font-weight-mobile-region-title: 600;
-  --font-family-mobile-region-title-description: "Exo";
-  --font-size-mobile-region-title-description: 25pxpx;
-  --font-weight-mobile-region-title-description: 400;
-  --font-family-list-item-mobile: "Inter";
-  --font-size-list-item-mobile: 22pxpx;
-  --font-weight-list-item-mobile: 400;
+  --font-family: "Inter", sans-serif;
+  --second-family: "Exo", sans-serif;
+  --third-family: "Roboto Condensed", sans-serif;
+  --font3: "Lato", sans-serif;
+  --font4: "Georama", sans-serif;
+  --font5: "Roboto", sans-serif;
+  --font6: "Font Awesome 5 Free", sans-serif;
+  --font7: "Geostar", sans-serif;
 
   /* Effect Styles */
   --effect-light-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.25);

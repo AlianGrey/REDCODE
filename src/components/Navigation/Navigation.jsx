@@ -7,9 +7,9 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons";
 function Navigation() {
   return (    
     <nav className="navigation">
-        <a href="tel:+79999999999" className="navigation__phone">
+        <a href="tel:+79635371116" className="navigation__phone">
             <FontAwesomeIcon icon={faPhone} />
-            <span>+7 (999) 999-99-99</span>
+            <span>+7 (963) 537-11-16</span>
         </a>
         <div className="navigation__menu">
             <Link to="/services">Услуги</Link>

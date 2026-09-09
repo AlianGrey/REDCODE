@@ -1,9 +1,56 @@
 @font-face {
-  font-family: 'YourFont';
-  src: url('../assets/fonts/YourFont-Bold.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Exo';
+  src: url('../assets/fonts/Exo-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url('../assets/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url('../assets/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url('../assets/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Georama";
+  src: url('../assets/fonts/Georama-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato";
+  src: url('../assets/fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.lato-black {
+  font-family: "Lato";
+  src: url('../assets/fonts/Lato-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
 }
 
 body {
-  font-family: 'YourFont', sans-serif;
+  font-family: 'Inter', sans-serif;
 }

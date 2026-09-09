@@ -19,61 +19,28 @@ function SEO({
 
             <title>{fullTitle}</title>
 
-            <meta
-                name="description"
-                content={description}
-            />
+            <meta name="description" content={description} />
 
-            <meta
-                name="robots"
-                content="index, follow"
-            />
+            <meta name="robots" content="index, follow" />
 
-            {url && (
-                <link
-                rel="canonical"
-                href={url}
-                />
+            {url && ( <link rel="canonical" href={url}  />
             )}
 
             {/* Open Graph */}
 
-            <meta
-                property="og:type"
-                content="website"
-            />
+            <meta property="og:type" content="website" />
 
-            <meta
-                property="og:title"
-                content={fullTitle}
-            />
+            <meta property="og:title" content={fullTitle} />
 
-            <meta
-                property="og:description"
-                content={description}
-            />
+            <meta property="og:description" content={description} />
 
-            {url && (
-                <meta
-                property="og:url"
-                content={url}
-                />
-            )}
+            {url && ( <meta property="og:url" content={url} /> )}
 
-            <meta
-                property="og:image"
-                content={image}
-            />
+            <meta property="og:image" content={image} />
 
-            <meta
-                property="og:site_name"
-                content={siteName}
-            />
+            <meta property="og:site_name" content={siteName}/>
 
-            <meta
-                property="og:locale"
-                content="ru_RU"
-            />
+            <meta property="og:locale" content="ru_RU"/>
         </Helmet>
     )
 }

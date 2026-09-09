@@ -5,10 +5,11 @@ import Header from './components/Header/Header.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import PortfolioPage from './pages/Portfolio/PortfolioPage.jsx'
 import ProjectPage from './pages/Project/ProjectPage.jsx'
-
 import ScrollToHash from './components/ScrollToHash/ScrollToHash.jsx'
 import AboutPage from './pages/About/AboutPage.jsx'
 import ContactPage from './pages/ContactPage/ContactPage.jsx'
+import BriefPage from './pages/Brief/BriefPage.jsx'
+import NotFoundPage from './pages/NotFound/NotFoundPage.jsx'
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
         <Route path="/projects/:slug" element={<ProjectPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/brief" element={<BriefPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </>
