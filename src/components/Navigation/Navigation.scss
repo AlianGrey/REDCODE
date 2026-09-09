@@ -1,0 +1,21 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation__phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navigation__menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navigation a {
+  text-decoration: none;
+}

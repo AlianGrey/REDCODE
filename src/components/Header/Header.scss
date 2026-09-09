@@ -1,0 +1,14 @@
+.header {
+  background-image: url("/images/header-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.header__content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  background: url("/images/decor.png") no-repeat;
+}

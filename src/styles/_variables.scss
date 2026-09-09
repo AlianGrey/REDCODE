@@ -1,0 +1,62 @@
+:root {
+/* Color styles */
+--basic-black: rgba(0, 0, 0, 1);
+--basic-grey: rgba(232, 231, 232, 1);
+--dark-grey: rgba(96, 96, 126, 1);
+--light-violet: rgba(209, 196, 214, 1);
+--violet-stroke: rgba(190, 167, 196, 1);
+--light-blue: rgba(210, 219, 226, 1);
+--light-blue-stroke: rgba(189, 196, 212, 1);
+--light-rose: rgba(248, 202, 202, 1);
+--light-rose-stroke: rgba(245, 185, 185, 1);
+--grey-bg-header: rgba(118, 118, 118, 1);
+--white: rgba(255, 255, 255, 1);
+--light-grey-bg-input: rgba(248, 248, 248, 1);
+--red: rgba(181, 6, 6, 1);
+--green: rgba(6, 181, 65, 1);
+--dark-grey: rgba(83, 83, 83, 1);
+--bright-red: rgba(230, 33, 33, 1);
+--light-blue: rgba(185, 212, 255, 1);
+--bright-blue: rgba(48, 99, 178, 1);
+--light-green: rgba(195, 255, 217, 1);
+--bright-green: rgba(10, 208, 91, 1);
+--grey-icon: rgba(210, 219, 226, 1);
+--dark-grey-text-444: rgba(68, 68, 68, 1);
+--input-grey: rgba(164, 169, 181, 1);
+--body-grey-text: rgba(83, 83, 83, 1);
+
+  /* Text Styles */
+  --font-family-input-text: "Inter";
+  --font-size-input-text: 16pxpx;
+  --font-weight-input-text: 400;
+  --font-family-font-awesome-icon: "Font Awesome 5 Free";
+  --font-size-font-awesome-icon: 20pxpx;
+  --font-weight-font-awesome-icon: 400;
+  --font-family-font-awesome-icon-17: "Font Awesome 5 Free";
+  --font-size-font-awesome-icon-17: 17pxpx;
+  --font-weight-font-awesome-icon-17: 400;
+  --font-family-title-h2: "Inter";
+  --font-size-title-h2: 25pxpx;
+  --font-weight-title-h2: 400;
+  --font-family-title-h1-black: "Exo";
+  --font-size-title-h1-black: 32pxpx;
+  --font-weight-title-h1-black: 600;
+  --font-family-title-h1-grey: "Exo";
+  --font-size-title-h1-grey: 32pxpx;
+  --font-weight-title-h1-grey: 600;
+  --font-family-body: "Inter";
+  --font-size-body: 20pxpx;
+  --font-weight-body: 400;
+  --font-family-mobile-region-title: "Exo";
+  --font-size-mobile-region-title: 25pxpx;
+  --font-weight-mobile-region-title: 600;
+  --font-family-mobile-region-title-description: "Exo";
+  --font-size-mobile-region-title-description: 25pxpx;
+  --font-weight-mobile-region-title-description: 400;
+  --font-family-list-item-mobile: "Inter";
+  --font-size-list-item-mobile: 22pxpx;
+  --font-weight-list-item-mobile: 400;
+
+  /* Effect Styles */
+  --effect-light-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}

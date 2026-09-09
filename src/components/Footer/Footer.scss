@@ -1,0 +1,44 @@
+.footer {
+    &__main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 60px 0;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__contact {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__menu h3 {
+        margin: 0 0 10px;
+    }
+
+    &__menu a {
+        text-decoration: none;
+    }
+
+    &__bottom {
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    &__bottom p {
+        margin: 0;
+    }
+}
