@@ -1,9 +1,18 @@
 .footer {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 20px;
+
     &__main {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
         padding: 60px 0;
+        background: url("/images/footer-main-rocks.svg") repeat-x 50% 100% #024597;
+        color: var(--light-grey-bg-input);
+        
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
     }
 
     &__contacts {
@@ -23,22 +32,27 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-    }
 
-    &__menu h3 {
-        margin: 0 0 10px;
-    }
+        a {
+            display: flex;
+            align-items: center;
+            gap: 20px;
 
-    &__menu a {
-        text-decoration: none;
+            &::before {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 15px;
+                background-color: #4876ad;
+            }
+        }
     }
 
     &__bottom {
         padding: 20px 0;
         text-align: center;
+        background-color: #001744;
+        color: var(--white);
     }
 
-    &__bottom p {
-        margin: 0;
-    }
 }

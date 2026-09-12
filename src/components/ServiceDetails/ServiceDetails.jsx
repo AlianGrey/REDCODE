@@ -1,8 +1,8 @@
 import './ServiceDetails.scss'
 
-import web from '../../assets/images/services/web.png'
-import learning from '../../assets/images/services/learning.png'
-import support from '../../assets/images/services/support.png'
+import web from '../../assets/images/services/web.svg'
+import learning from '../../assets/images/services/learning.svg'
+import support from '../../assets/images/services/support.svg'
 
 const services = [
     {

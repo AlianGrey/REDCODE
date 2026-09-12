@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowRight,
+    faArrowRightLong,
+    faUser,
     faPhone,
     faEnvelope,
     // faTelegram,
@@ -23,6 +24,11 @@ const contactSchema = z.object({
         .string()
         .trim()
         .min(3,"Это поле обязательно для заполнения"),
+    consent: z
+        .boolean()
+        .refine(value => value === true, {
+            message: "Необходимо согласиться с обработкой персональных данных",
+        }),
 });
 
 function Contact() {
@@ -39,7 +45,7 @@ function Contact() {
         console.log(data);
     }
 
-    return (
+    return ( 
         <section className="contacts">
             <div className="container">
                 <div className="contacts__left">
@@ -49,20 +55,27 @@ function Contact() {
 
                     <form className="contacts__form" onSubmit={handleSubmit(onSubmit)}>     
                         
-                        <input
-                            id="name"
-                            type="text"
-                            placeholder="Ваше имя"
-                            {...register("name")}
-                        />                
-                        <input
-                            id="contact"
-                            type="text"
-                            placeholder="Контакт для связи"
-                            {...register("contact")}
-                        />
+                        <div className="contacts__form-field">
+                            <FontAwesomeIcon icon={faUser} className="contacts__form-field__icon" />
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="Ваше имя"
+                                {...register("name")}
+                            />
+                        </div>
+
+                        <div className="contacts__form-field">
+                            <FontAwesomeIcon icon={faEnvelope} className="contacts__form-field__icon" />
+                            <input
+                                id="contact"
+                                type="text"
+                                placeholder="Контакт для связи"
+                                {...register("contact")}
+                            />
+                        </div>
                         {errors.contact && (
-                        <p className="error">{errors.contact.message}</p>
+                            <p className="error">{errors.contact.message}</p>
                         )}
 
                         <textarea
@@ -71,17 +84,30 @@ function Contact() {
                             {...register("message")}
                         />
                         {errors.message && (
-                        <p className="error">{errors.message.message}</p>
+                            <p className="error">{errors.message.message}</p>
+                        )}
+
+                        <div className="contacts__form-consent">
+                            <input
+                                id="consent"
+                                type="checkbox"
+                                {...register("consent", {required: "Необходимо согласить с обработкой персональных данных",})}
+                            />
+
+                            <label htmlFor="consent">
+                                Отправляя данные, Вы соглашаетесь на{" "}
+                                <u><a href="/privacy-policy">обработку персональных данных</a></u>
+                            </label>
+                        </div>
+
+                        {errors.consent && (
+                            <p className="error">{errors.consent.massage}</p>
                         )}
 
                         <button type="submit" className="contacts__submit">
-                            <FontAwesomeIcon icon={faArrowRight} />
+                            <FontAwesomeIcon icon={faArrowRightLong} />
                             <span>Отправить</span>                    
                         </button>
-                        <p className="contacts__privacy">
-                            Оставляя данные, Вы соглашаетесь
-                            на обработку персональных данных
-                        </p>
                     </form>
                 </div>
 
@@ -94,12 +120,12 @@ function Contact() {
                     </div>
 
                     <a href="tel:+381XXXXXXXXX" className="contacts__link">
-                        <FontAwesomeIcon icon={faPhone} />
+                        <FontAwesomeIcon icon={faPhone} className="contacts__link-icon"/>
                         <span>+381 XX XXX XXXX</span>
                     </a>
 
                     <a href="mailto:info@redcode.ru" className="contacts__link">
-                        <FontAwesomeIcon icon={faEnvelope} />
+                        <FontAwesomeIcon icon={faEnvelope} className="contacts__link-icon"/>
                         <span>info@redcode.ru</span>
                     </a>
 

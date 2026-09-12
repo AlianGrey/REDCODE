@@ -1,5 +1,5 @@
 import './Process.scss'
-import lamp from '../../assets/images/process_idea-icon.png'
+import lamp from '../../assets/icons/process-title-lamp.svg'
 
 const processSteps = [
     {
@@ -39,23 +39,25 @@ const processSteps = [
 ]
 
 function Process() {
-  return (
-    <section className="process">   
-    <div className="process__intro">
-        <h2 className='process__title'>Как идея  <img src={lamp} alt="Идея" />   становится сайтом</h2>
-        <p>разберём по шагам</p>
-    </div>
-    <div className="process__steps">   
-        {processSteps.map((step) => (
-            <article key={step.number} className="process__step">
-                <span className="process__number">
-                    {step.number}
-                </span>
-                <h3>{step.title}</h3>   
-                <p>{step.description}</p>
-            </article>
-        ))}
-    </div>
+  return ( 
+    <section className="process">  
+        <div className='container'>
+            <div className="process__intro">
+                <h2 className='process__title section-title'>Как идея  <img src={lamp} alt="Идея" />   становится сайтом</h2>
+                <p className="section-subtitle">разберём по шагам</p>
+            </div>
+            <div className="process__steps">   
+                {processSteps.map((step) => (
+                    <article key={step.number} className="process__step">
+                        <span className="process__number">
+                            {step.number}
+                        </span>
+                        <h3 className="items-title">{step.title}</h3>   
+                        <p>{step.description}</p>
+                    </article>
+                ))}
+            </div>
+        </div>
     </section>
   )
 }

@@ -1,0 +1,10 @@
+@use './variables' as *;
+
+.container {
+    width: min(
+        100% - ($container-side-padding * 2),
+        $container-width
+    );
+
+    margin-inline: auto;
+}

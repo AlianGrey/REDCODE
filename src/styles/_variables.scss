@@ -1,4 +1,5 @@
 :root {
+ 
 
 /* Color styles */
 --basic-black: rgba(0, 0, 0, 1);
@@ -39,3 +40,6 @@
   /* Effect Styles */
   --effect-light-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
+  $container-width: 1200px;
+  $container-side-padding: 20px;   

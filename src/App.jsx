@@ -10,6 +10,7 @@ import AboutPage from './pages/About/AboutPage.jsx'
 import ContactPage from './pages/ContactPage/ContactPage.jsx'
 import BriefPage from './pages/Brief/BriefPage.jsx'
 import NotFoundPage from './pages/NotFound/NotFoundPage.jsx'
+import PrivacyPolicyPage from './pages/PrivacyPolicy/PrivacyPolicyPage.jsx'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/brief" element={<BriefPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage /> } />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

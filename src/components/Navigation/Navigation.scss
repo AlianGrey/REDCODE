@@ -1,21 +1,33 @@
 .navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  border-bottom: 1px solid var(--bright-blue);
+  background: rgba(31, 92, 141, 0.63);
+  color: var(--white);
+  font-family: var(--font-family);
+  font-weight: 400;
+  padding: 15px 0px;
+  font-size: 1.3em;
 
-.navigation__phone {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.navigation__menu {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
+  &__phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-.navigation a {
-  text-decoration: none;
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+
+
 }
