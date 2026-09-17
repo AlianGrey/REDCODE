@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom'
 const Portfolio = () => {   
     return (
         <section className="portfolio" id="portfolio">
-            <div className="portfolio__intro">
-                <h2 className="portfolio__title">Портфолио</h2>
-                 <p>у каждого проекта свой характер</p>
+            <div className='container'>
+                <div className="portfolio__intro">
+                    <h2 className="portfolio__title section-title">Портфолио</h2>
+                    <p className='section-subtitle'>у каждого проекта свой характер</p>
+                </div>
+                <Link to="/portfolio" className="portfolio__view-all">
+                    Все проекты
+                </Link>
             </div>
           
             <div className="portfolio__grid">
@@ -25,9 +30,6 @@ const Portfolio = () => {
                     </Link>  
                 ))}
             </div>
-            <Link to="/portfolio" className="portfolio__view-all">
-                Все проекты
-            </Link>
         </section>
     )
 }

@@ -1,5 +1,8 @@
 import './Process.scss'
 import lamp from '../../assets/icons/process-title-lamp.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
 
 const processSteps = [
     {
@@ -12,25 +15,21 @@ const processSteps = [
         title: 'ДИЗАЙНИМ', 
         description: 'Создаём дизайн сайта с учётом особенностей вашего бизнеса и задач проекта.',
     },
-    ,
     {
         number: 3,
         title: 'ПРОДУМЫВАЕМ', 
         description: 'Заранее продумываем потребности пользователей и удобство использования сайта.',
     },
-    ,
     {
         number: 4,
         title: 'РАЗРАБАТЫВАЕМ', 
         description: 'Превращаем готовый дизайн в современный адаптивный сайт.',
     },
-    ,
     {
         number: 5,
         title: 'ЗАПУСКАЕМ И ОБУЧАЕМ', 
         description: 'Передаём готовый сайт и обучаем, как самостоятельно работать с его содержимым.',
     },
-    ,
     {
         number: 6,
         title: 'ОСТАЁМСЯ НА СВЯЗИ', 
@@ -39,6 +38,13 @@ const processSteps = [
 ]
 
 function Process() {
+    const [openStep, setOpenStep] = useState(1)
+
+    const handleStepClick = (number) => {
+        setOpenStep( openStep === number ? null : number)
+    }
+
+
   return ( 
     <section className="process">  
         <div className='container'>
@@ -47,15 +53,35 @@ function Process() {
                 <p className="section-subtitle">разберём по шагам</p>
             </div>
             <div className="process__steps">   
-                {processSteps.map((step) => (
-                    <article key={step.number} className="process__step">
-                        <span className="process__number">
-                            {step.number}
-                        </span>
-                        <h3 className="items-title">{step.title}</h3>   
-                        <p>{step.description}</p>
-                    </article>
-                ))}
+                {processSteps.map((step) => {
+                    const isOpen = openStep === step.number
+
+                    return(
+                        <article 
+                            key={step.number} 
+                            className={`process__step ${isOpen ? 'is-open' : ''}`}
+                        >
+                            <div className="process__number">
+                                {step.number}
+                            </div>
+                            <div className="process__description">
+                                <button 
+                                    className='items-title'
+                                    onClick={ () => handleStepClick(step.number) }
+                                    aria-expanded= {isOpen}
+                                >
+                                    <span>{step.title}</span>
+                                    <span className='items-title__icon'>
+                                        <FontAwesomeIcon icon={faCaretDown} />
+                                    </span>
+                                </button>
+                                <div className="items-description">
+                                    <p>{step.description}</p>
+                                </div>
+                            </div>
+                        </article>
+                    )
+                })}
             </div>
         </div>
     </section>

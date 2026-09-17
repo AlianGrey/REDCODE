@@ -104,7 +104,7 @@ function Contact() {
                             <p className="error">{errors.consent.massage}</p>
                         )}
 
-                        <button type="submit" className="contacts__submit">
+                        <button type="submit" className="contacts__submit btn btn-red">
                             <FontAwesomeIcon icon={faArrowRightLong} />
                             <span>Отправить</span>                    
                         </button>

@@ -1,5 +1,5 @@
 import './Navigation.scss';
-import { Link } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,10 +14,10 @@ function Navigation() {
                   <span>+7 (963) 537-11-16</span>
               </a>
               <div className="navigation__menu">
-                  <Link to="/services">Услуги</Link>
-                  <Link to="/about">О нас</Link>
-                  <Link to="/portfolio">Портфолио</Link>
-                  <Link to="/contact">Контакты</Link>
+                  <NavLink to="/services">Услуги</NavLink>
+                  <NavLink to="/about">О нас</NavLink>
+                  <NavLink to="/portfolio">Портфолио</NavLink>
+                  <NavLink to="/contact">Контакты</NavLink>
               </div>
           </div>
       </div>
