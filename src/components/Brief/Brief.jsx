@@ -14,7 +14,7 @@ function Brief() {
           <div className="brief__arrow">
               <FontAwesomeIcon icon={faArrowDown} />
           </div>
-          <Link to="/brief" className="brief__button btn btn-grey">
+          <Link to="/brief" className="brief__button btn btn-white">
               <FontAwesomeIcon icon={faListUl} />
               <span>ЗАПОЛНИТЕ БРИФ</span>
           </Link>

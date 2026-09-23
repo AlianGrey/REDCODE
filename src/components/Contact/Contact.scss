@@ -88,6 +88,10 @@
 
     &__submit {
         padding: 15px 20px;
+
+        &:hover svg {
+            transform: translateX(4px);
+        }
     }
 
     &__privacy {

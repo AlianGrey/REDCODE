@@ -4,7 +4,7 @@ import Services from "../../components/Services/Services";
 import SEO from "../../components/SEO/SEO";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadset, faUsers, faCode, faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
-import introIcon from '../../assets/images/pages/aboutUs_block1_v4.svg';
+import introIcon from '../../assets/images/pages/aboutUs/aboutUs_block1_v4.svg';
 import './AboutPage.scss';
 
 
@@ -39,7 +39,7 @@ function AboutPage() {
                         <div className="about-us__content">
                             <p className="about-us__subtitle page-subtitle">КТО МЫ</p>
 
-                            <h2 className="about-us__title page-title__small">
+                            <h2 className="about-us__title block-title">
                                 Создаём решения,
                                 которые работают
                             </h2>
@@ -72,7 +72,7 @@ function AboutPage() {
                     <div className="container">
                         <div className="about-approach__intro">
                             <p className="about-approach__subtitle page-subtitle">НАШ ПОДХОД</p>
-                            <h2 className="about-approach__title page-title__small">Работаем над проектом вместе</h2>
+                            <h2 className="about-approach__title block-title">Работаем над проектом вместе</h2>
                             <p className="about-approach__text page-description">
                                 Мы стараемся сделать процесс разработки
                                 понятным и комфортным на каждом этапе.

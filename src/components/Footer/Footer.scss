@@ -10,9 +10,13 @@
         
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 40px;
         }
+    }
+
+    &__logo {
+        width: 250px;
     }
 
     &__contacts {
@@ -37,6 +41,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            transition: all 0.3s ease;
 
             &::before {
                 content: "";
@@ -45,14 +50,18 @@
                 width: 15px;
                 background-color: #4876ad;
             }
+            &:hover {
+                color: var(--light-blue);
+                transform: scale(1.1,1.1);
+            }
         }
     }
 
     &__bottom {
         padding: 20px 0;
         text-align: center;
-        background-color: #001744;
-        color: var(--white);
+        background-color: var(--dark-blue-bottom);
+        color: var(--bright-blue);
     }
 
 }

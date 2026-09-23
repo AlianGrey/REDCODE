@@ -1,7 +1,8 @@
 .process {
     padding: 50px 0px 0px;
     margin-bottom: 50px;
-    background: url(/images/process_bg-todolist.png) no-repeat scroll 90% 150px;
+    background: url(/images/process_bg-todolist_v3.png) no-repeat scroll  80% 100%;
+    background-size: 600px;
 
     .container {
         background: url("/images/process_linepath.png") no-repeat scroll 30% 70px;
@@ -101,6 +102,7 @@
 
         &.is-open {
             grid-template-columns: 12% 1fr;
+            background: #ffffffc9;
 
             .process__number {
                 font-size: 40px;
