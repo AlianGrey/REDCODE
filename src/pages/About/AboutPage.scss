@@ -7,7 +7,7 @@
 
     .about-intro {
         padding: 50px 20px;
-        background-color: #F8F8F8;
+        background: url(/images/aboutUs_block1.svg) no-repeat scroll 50% 0% #ffffff;
 
         .container {
             display: flex;
@@ -24,28 +24,32 @@
         &__content {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: left;
+            align-items: flex-start;
         }
 
-         &__title {
-            margin-bottom: 30px;
+        .block-title {
             font-weight: 400;
-            font-size: 1.5em;
-
-            &::after {
-                background-color: #5778A22B;
-                }
         }
+
         &__subtitle {
-            font-size: 1.5em;
-            color: #2a5e8c;
+            font-size: 1.1em;
             letter-spacing: 1px;
             text-transform: uppercase;
-            line-height: 1.7em;
-            text-align: center;
-            max-width: 700px;
-            font-weight: 600;
+            padding-bottom: 20px;
+            color: var(--body-grey-text);
+
+            &::after {
+                content: "";
+                display: block;
+                height: 2px;
+                width: 50px;
+                background-color: var(--bright-red);
+                margin-top: 10px;
+            }
+        }
+        .page-description {
+            font-size: 1.5em;
         }
     }
 
@@ -55,7 +59,7 @@
     // =========================
 
     .about-us {
-        background: url('/images/aboutUs_block2.jpg') no-repeat scroll 100% 50% #f6f7fb;
+        background: url('/images/aboutUs_block2_v4.jpg') no-repeat scroll 100% 50% #ffffff;
         padding: 80px 0px;
         background-size: contain;
 

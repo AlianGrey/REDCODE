@@ -18,10 +18,15 @@ function App() {
   const location = useLocation();
 
   const isHome = location.pathname === '/';
+  const pageClasses = {
+    '/services': 'service-page',
+    '/portfolio': 'portfolio-page',
+    '/brief': 'brief-page',
+  }
 
   return (
     <>
-      <div className={location.pathname === '/services' ? 'service-page' : ''}>
+      <div className={ pageClasses[location.pathname] || ''}>
         <ScrollToHash />
  
         {isHome ? <HomeHeader /> : <Header />}       

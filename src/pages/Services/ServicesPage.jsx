@@ -154,7 +154,7 @@ function ServicesPage() {
 
       {/* WEB DEVELOPMENT */}
 
-      <section className="service-section service-section--web">
+      <section id="web-development" className="service-section service-section--web">
         <div className="container">
 
           <div className="service-section__header">
@@ -295,7 +295,7 @@ function ServicesPage() {
 
       {/* DISTANCE LEARNING */}
 
-      <section className="service-section service-section--education">
+      <section id="learning" className="service-section service-section--education">
 
         <div className="container">
 
@@ -381,7 +381,7 @@ function ServicesPage() {
 
       {/* SUPPORT */}
 
-      <section className="service-section service-section--support">
+      <section id="support" className="service-section service-section--support">
 
         <div className="container">
 

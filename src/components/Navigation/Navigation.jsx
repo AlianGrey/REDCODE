@@ -2,7 +2,7 @@ import './Navigation.scss';
 import { NavLink} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import logo from '../../assets/icons/small_logo.svg';
+import logo from '../../assets/icons/smallLogo_withIcon.svg';
 
 
 function Navigation() {

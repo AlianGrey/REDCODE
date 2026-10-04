@@ -1,0 +1,329 @@
+
+.brief-form {
+  --brief-navy: #0d2b55;
+  --brief-red: #ff2638;
+  --brief-light: #f2f6fc;
+  --brief-border: #d7e2f0;
+  --brief-muted: #91a2ba;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  color: var(--brief-navy);
+
+  /* Общие стили полей */
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--brief-border);
+    border-radius: 5px;
+    outline: none;
+    background: #fff;
+    color: var(--brief-navy);
+    font: inherit;
+    font-size: 14px;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  input {
+    min-height: 46px;
+  }
+
+  textarea {
+    display: block;
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #a1b0c5;
+    opacity: 1;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: var(--brief-navy);
+    box-shadow: 0 0 0 3px rgb(13 43 85 / 7%);
+  }
+
+  /* Секции формы */
+
+  &__block {
+    min-width: 0;
+    padding: 28px 30px;
+    border: 1px solid #edf1f8;
+    border-radius: 10px;
+    background: var(--brief-light);
+
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:focus-within {
+      border-color: #d5e1f1;
+    }
+
+    & + & {
+      margin-top: 0;
+    }
+  }
+
+  /* Номер секции и заголовок */
+
+  &__heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 24px;
+
+    > span {
+      display: flex;
+      flex: 0 0 38px;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--brief-navy);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 7px;
+      color: #7588a2;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--brief-navy);
+      font-family: var(--second-family);
+      font-size: clamp(21px, 2.2vw, 28px);
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+  }
+
+  /* Сетка полей */
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 24px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+
+    > span:first-child {
+      color: var(--brief-navy);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    &--full {
+      width: 100%;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /* Тип проекта */
+
+  &__options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      min-height: 50px;
+      padding: 10px 14px;
+      border: 1px solid var(--brief-border);
+      border-radius: 5px;
+      background: #fff;
+      color: var(--brief-navy);
+      font-size: 14px;
+      line-height: 1.45;
+      cursor: pointer;
+
+      transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+      &:hover {
+        border-color: #8ca7cc;
+        background: #fafdff;
+      }
+
+      &:has(input:checked) {
+        border-color: var(--brief-red);
+        box-shadow: 0 0 0 1px rgb(255 38 56 / 8%);
+      }
+    }
+
+    input[type="radio"] {
+      flex: 0 0 16px;
+      width: 16px;
+      min-height: 16px;
+      height: 16px;
+      margin: 0;
+      padding: 0;
+      accent-color: var(--brief-red);
+      cursor: pointer;
+    }
+
+    label span {
+      min-width: 0;
+    }
+  }
+
+  /* Ошибки валидации */
+
+  &__error {
+    color: #d91d2c;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  /* Отправка формы */
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px 0 28px;
+
+    p {
+      max-width: 420px;
+      margin: 0;
+      color: #64758d;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    button {
+      padding: 15px 25px;
+      padding: 17px 40px;
+      font-size: 1.2em;
+      letter-spacing: 1px;
+      font-weight: 600;
+
+      &:hover svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+/* Планшеты */
+
+@media (max-width: 768px) {
+  .brief-form {
+    &__block {
+      padding: 24px 20px;
+    }
+
+    &__heading {
+      gap: 16px;
+
+      > span {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    &__fields {
+      gap: 18px;
+    }
+  }
+}
+
+/* Телефоны */
+
+@media (max-width: 560px) {
+  .brief-form {
+    gap: 12px;
+
+    &__block {
+      padding: 20px 16px;
+      border-radius: 7px;
+    }
+
+    &__heading {
+      gap: 12px;
+      margin-bottom: 20px;
+
+      > span {
+        flex-basis: 30px;
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
+      }
+
+      p {
+        font-size: 10px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+    }
+
+    &__fields,
+    &__options {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    &__field--full {
+      margin-bottom: 18px;
+    }
+
+    &__options label {
+      min-height: 48px;
+    }
+
+    &__submit {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 18px;
+      padding-bottom: 24px;
+
+      p {
+        max-width: none;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

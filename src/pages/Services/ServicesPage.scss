@@ -44,7 +44,7 @@
 ============================================ */
 
 .services-hero {
-    background: var(--light-grey-bg-input);
+    background: url(/images/block1_bg.png) no-repeat scroll 100% 97% var(--light-grey-bg-input);
 
     &__inner {
         display: grid;

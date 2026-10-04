@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { briefSchema } from "../../schemas/briefSchema";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import './BriefForm.scss';
 
 function BriefForm() {
@@ -351,7 +353,9 @@ function BriefForm() {
                 <p>Заполняя бриф, вы помогаете нам лучше
                     понять ваш проект и подготовить предложение.
                 </p>
-                <button type="submit">ОТПРАВИТЬ БРИФ</button>
+                <button type="submit" className="btn btn-red">ОТПРАВИТЬ БРИФ
+                    <FontAwesomeIcon icon={faArrowRight}/>
+                </button>
             </div>
 
         </form>

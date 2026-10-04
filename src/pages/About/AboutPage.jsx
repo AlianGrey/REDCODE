@@ -4,7 +4,6 @@ import Services from "../../components/Services/Services";
 import SEO from "../../components/SEO/SEO";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadset, faUsers, faCode, faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
-import introIcon from '../../assets/images/pages/aboutUs/aboutUs_block1_v4.svg';
 import './AboutPage.scss';
 
 
@@ -20,12 +19,10 @@ function AboutPage() {
                 {/* Intro */}
                 <section className="about-intro">
                     <div className="container">
-                        <div className="about-intro__icon">
-                            <img src={introIcon} alt="intro image"></img>
-                        </div>
                         <div className="about-intro__content">
-                            <h1 className="about-intro__title section-title">НЕСКОЛЬКО СЛОВ О НАШЕЙ КОМПАНИИ</h1>
-                            <p className="about-intro__subtitle">
+                            <p className="about-intro__subtitle">НЕСКОЛЬКО СЛОВ</p>
+                            <h1 className="about-intro__title block-title">О НАШЕЙ КОМПАНИИ</h1>
+                            <p className="page-description">
                                 Как мы превращаем вашу идею в современный,
                                 удобный и функциональный сайт.
                             </p>

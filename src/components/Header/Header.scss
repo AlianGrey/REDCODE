@@ -1,10 +1,15 @@
 .innerheader {
     .logo {
         display: block;
-        width: 200px;
+        width: 220px;
     }
     .navigation {
-        background-color: #366996;
+        background-color: #fff;
+        color: var(--dark-blue-bottom);
+
+    }
+    .navigation__menu a::after {
+        bottom: -26px;
     }
 
 }
