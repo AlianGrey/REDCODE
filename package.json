@@ -19,6 +19,7 @@
     "react-helmet-async": "^3.0.0",
     "react-hook-form": "^7.87.0",
     "react-router-dom": "^7.18.3",
+    "swiper": "^14.3.0",
     "zod": "^4.5.4"
   },
   "devDependencies": {

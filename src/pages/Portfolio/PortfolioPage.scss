@@ -309,52 +309,7 @@
 
 .portfolio-page {
     .footer__main {
-        background-color: var(--dark-blue-bottom);
+        background: linear-gradient(to bottom, rgba(20, 77, 143, 0.5) 0%, rgb(0, 23, 68) 100%), var(--dark-blue-bottom);
     }
-
-    .portfolio-cta {
-        background-color: #edf4fc;
-        padding: 60px 0px;
-        
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 5fr;
-            gap: 20px 30px;
-            align-items: center;
-        }
-
-        &__content {
-            color: #526d9d;
-        }
-
-        &__image {
-          font-size: 7em;
-          color: #526d9d99;
-        }
-
-        &__title {
-          text-transform: uppercase;
-          letter-spacing: 2px;
-        }
-
-        &__description {
-          padding: 15px 0px 40px 0px;
-          font-size: 1.4em;
-        }
-
-        &__button {
-            padding: 17px 60px;
-            border-radius: 50px;
-            text-transform: none;
-            font-weight: 400;
-            background: var(--red-bg-ctablock);
-
-            &:hover svg {
-                transform: translateX(4px);
-            }
-        }
-
-    }
-
 
 }

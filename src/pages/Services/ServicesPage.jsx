@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
-  faCode,
   faGlobe,
   faMobileScreen,
-  faLaptopCode,
   faPenRuler,
-  faVial,
   faGraduationCap,
   faListCheck,
   faChartLine,
@@ -14,16 +11,13 @@ import {
   faWandMagicSparkles,
   faArrowRight,
   faComments,
-  faCloudArrowUp,
   faCircleCheck,
   faCartShopping,
   faFileCode,
-  faRectangleList,
   faTableList,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SEO from '../../components/SEO/SEO.jsx'
-import Brief from '../../components/Brief/Brief.jsx';
 import block1 from '../../assets/images/pages/services/service_block1.png'
 import block2 from '../../assets/images/pages/services/service_block2.png'
 import learningBlock from '../../assets/images/pages/services/service_learningBlock.png'
@@ -33,6 +27,7 @@ import project3 from '../../assets/images/projects/project-03.jpg'
 import project4 from '../../assets/images/projects/project-04.jpg'
 
 import './ServicesPage.scss';
+import Cta from '../../components/CTA/Cta.jsx';
 
 const webServices = [
   {
@@ -425,7 +420,14 @@ function ServicesPage() {
 
 
       {/* Bref */}
-
+      <Cta 
+        main_icon="faComments" 
+        title="Не знаете с чего начать?" 
+        description="Расскажите о своей задаче - вместе подберём подходящее решение." 
+        btn_icon="faArrowRight" buttonText="Заполнить бриф" 
+        buttonLink="/brief"
+      />
+      
       <section className="services-cta">
 
         <div className="container">

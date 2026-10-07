@@ -5,6 +5,7 @@ import SEO from '../../components/SEO/SEO'
 import block1 from '../../assets/images/pages/portfolio/portfolio_block1_bg.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faComments } from '@fortawesome/free-solid-svg-icons'
+import Cta from '../../components/CTA/Cta'
 
 const PortfolioPage = () => {      
     return (
@@ -80,21 +81,15 @@ const PortfolioPage = () => {
                 </div>
             </main>
 
-            <section className='portfolio-cta'>
-                <div className='container'>
-                    <div className='portfolio-cta__image'>
-                        <FontAwesomeIcon icon={faComments} />
-                    </div>
-                    <div className='portfolio-cta__content'>
-                        <h2 className='portfolio-cta__title'>Есть идея для нового проекта? </h2>
-                        <p className='portfolio-cta__description'>Давайте создадим сайт вместе.</p>
-                        <Link to="/brief" className="portfolio-cta__button btn btn-red">
-                            <span>Заполнить бриф</span>
-                            <FontAwesomeIcon icon={faArrowRight} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <Cta 
+                main_icon={faComments}
+                title="Есть идея для нового проекта?" 
+                description="Давайте создадим сайт вместе." 
+                buttonText="Заполнить бриф" 
+                buttonLink="/brief" 
+                btn_icon={faArrowRight}
+            />
+
         </>
     )
 }

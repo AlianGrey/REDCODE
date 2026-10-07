@@ -22,11 +22,17 @@ function App() {
     '/services': 'service-page',
     '/portfolio': 'portfolio-page',
     '/brief': 'brief-page',
+    '/projects': 'projects-page',
   }
+
+  const isProjectPage = location.pathname.startsWith('/projects/');
 
   return (
     <>
-      <div className={ pageClasses[location.pathname] || ''}>
+      <div className={ 
+        pageClasses[location.pathname] || 
+        (isProjectPage ? 'project-page__wrapper' : '')
+        }>
         <ScrollToHash />
  
         {isHome ? <HomeHeader /> : <Header />}       
