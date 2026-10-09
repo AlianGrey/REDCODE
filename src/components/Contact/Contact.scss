@@ -147,3 +147,19 @@
         gap: 15px;
     }
 }
+.contacts__form {
+    
+    &__error {
+        display: block;
+        font-size: 13px;
+        color: var(--bright-red);
+    }
+
+    &__honeypot {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+    }
+}

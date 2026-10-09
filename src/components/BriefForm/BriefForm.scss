@@ -27,8 +27,8 @@
     font: inherit;
     font-size: 14px;
     transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   }
 
   input {
@@ -200,6 +200,46 @@
 
     label span {
       min-width: 0;
+    }
+  }
+
+    &__honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+  }
+
+  &__consent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+
+    input[type="checkbox"] {
+      flex: 0 0 16px;
+      width: 16px;
+      min-height: 16px;
+      height: 16px;
+      margin: 0;
+      padding: 0;
+      accent-color: var(--brief-red);
+      cursor: pointer;
+    }
+
+    label {
+      font-size: 13px;
+      line-height: 1.4;
+
+      a {
+        color: var(--brief-navy);
+        text-decoration: underline;
+
+        &:hover {
+          color: var(--brief-red);
+        }
+      }
     }
   }
 

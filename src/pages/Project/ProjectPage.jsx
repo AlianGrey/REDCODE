@@ -181,6 +181,7 @@ function ProjectPage() {
                     buttonText="Обсудить проект" 
                     buttonLink="/brief" 
                     btn_icon={faArrowUpRightFromSquare}
+                    btn_class="btn btn-light-red"
                 />
                 
             </main>

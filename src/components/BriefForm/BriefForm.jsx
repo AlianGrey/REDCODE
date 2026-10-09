@@ -1,24 +1,68 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { briefSchema } from "../../schemas/briefSchema";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import ModalMessage from "../ModalMessage/ModalMessage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import './BriefForm.scss';
 
 function BriefForm() {
+    const [submitStatus, setSubmitStatus] = useState(null);
+
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        reset,
+        formState: { 
+            errors,
+            isSubmitting,},
     } = useForm( { 
         resolver: zodResolver(briefSchema), 
+        mode: "onBlur",
+        defaultValues: {
+            name: "",
+            company: "",
+            email: "",
+            phone: "",
+            projectType: "",
+            projectDescription: "",
+            audience: "",
+            design: "",
+            examples: "",
+            deadline: "",
+            budget: "",
+            consent: false,
+        },
     } );
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async(data) => {
+        if (data.website) {
+            return;
+        }
+        setSubmitStatus(null);
+
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_BRIEF_TEMPLATE_ID,
+                data,
+                {
+                    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+                }
+            );
+            setSubmitStatus("success");
+            reset();
+
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            setSubmitStatus("error");
+        }
     }
 
     return (
+        <>
         <form className="brief-form" onSubmit={handleSubmit(onSubmit)}>
 
             {/* 01 — Контакты */}
@@ -38,6 +82,7 @@ function BriefForm() {
 
                         <input
                             type="text"
+                            id="name"
                             {...register('name')}
                             placeholder="Введите ваше имя"
                         />
@@ -55,6 +100,7 @@ function BriefForm() {
 
                         <input
                             type="text"
+                            id="company"
                             {...register('company')}
                             placeholder="Название компании"
                         />
@@ -72,6 +118,7 @@ function BriefForm() {
 
                         <input
                             type="email"
+                            id="email"
                             {...register('email')}
                             placeholder="example@mail.com"
                         />
@@ -89,6 +136,7 @@ function BriefForm() {
 
                         <input
                             type="tel"
+                            id="phone"
                             {...register('phone')}
                             placeholder="+381 ..."
                         />
@@ -121,6 +169,7 @@ function BriefForm() {
                     <label>
                         <input
                             type="radio"
+                            id="projectTypeWebsite"
                             value="Сайт с нуля"
                             {...register('projectType')}
                         />
@@ -131,6 +180,7 @@ function BriefForm() {
                     <label>
                         <input
                             type="radio"
+                            id="projectTypeRedesign"
                             value="Редизайн существующего сайта"
                             {...register('projectType')}
                         />
@@ -141,6 +191,7 @@ function BriefForm() {
                     <label>
                         <input
                             type="radio"
+                            id="projectTypeE-commerce"
                             value="Интернет-магазин"
                             {...register('projectType')}
                         />
@@ -151,6 +202,7 @@ function BriefForm() {
                     <label>
                         <input
                             type="radio"
+                            id="projectTypeE-learning"
                             value="Система дистанционного обучения"
                             {...register('projectType')}
                         />
@@ -161,6 +213,7 @@ function BriefForm() {
                     <label>
                         <input
                             type="radio"
+                            id="projectTypeSupport"
                             value="Поддержка и развитие сайта"
                             {...register('projectType')}
                         />
@@ -171,6 +224,7 @@ function BriefForm() {
                     <label>
                         <input
                             type="radio"
+                            id="projectTypeOther"
                             value="Другое"
                             {...register('projectType')}
                         />
@@ -204,6 +258,7 @@ function BriefForm() {
                     <span>Что нужно сделать? *</span>
 
                     <textarea
+                        id="projectDescription"
                         {...register('projectDescription')}
                         placeholder="Расскажите о компании, проекте и задачах, которые должен решать сайт..."
                         rows="7"
@@ -235,6 +290,7 @@ function BriefForm() {
                     <span>Целевая аудитория</span>
 
                     <textarea
+                      id="audience"
                         {...register('audience')}
                         placeholder="Кто ваши клиенты? Для кого предназначен сайт?"
                         rows="5"
@@ -266,6 +322,7 @@ function BriefForm() {
                     <span>Пожелания по дизайну</span>
 
                     <textarea
+                        id="design"
                         {...register('design')}
                         placeholder="Расскажите о предпочитаемом стиле, цветах, настроении..."
                         rows="5"
@@ -284,6 +341,7 @@ function BriefForm() {
 
                     <textarea
                         {...register('examples')}
+                        id="examples"
                         placeholder="Добавьте ссылки на сайты, которые вам нравятся"
                         rows="4"
                     />
@@ -317,6 +375,7 @@ function BriefForm() {
 
                         <input
                             type="text"
+                            id="deadline"
                             {...register('deadline')}
                             placeholder="Например, до декабря 2026"
                         />
@@ -334,6 +393,7 @@ function BriefForm() {
 
                         <input
                             type="text"
+                            id="budget"
                             {...register('budget')}
                             placeholder="Например, 1500–3000 €"
                         />
@@ -344,21 +404,57 @@ function BriefForm() {
                             </span>
                         )}
                     </label>
+
+                    <div className="brief-form__honeypot" aria-hidden="true">
+                        <input
+                            type="text"
+                            {...register("website")}
+                            tabIndex={-1}
+                            autoComplete="off"
+                        />
+                    </div>
+
                 </div>
             </div>
 
+            <div className="brief-form__consent">
+                <input
+                    id="consent"
+                    type="checkbox"
+                    {...register("consent")}
+                />
+
+                <label htmlFor="consent">
+                    Отправляя данные, Вы соглашаетесь на{" "}
+                    <u><a href="/privacy-policy">обработку персональных данных</a></u>
+                </label>
+            </div>
+            {errors.consent && (
+                            <p className="brief-form__error">{errors.consent.message}</p>
+            )}
 
             {/* Отправка */}
             <div className="brief-form__submit">
                 <p>Заполняя бриф, вы помогаете нам лучше
                     понять ваш проект и подготовить предложение.
                 </p>
-                <button type="submit" className="btn btn-red">ОТПРАВИТЬ БРИФ
+                <button 
+                    type="submit" 
+                    className="btn btn-red"
+                    disabled={isSubmitting}
+                >
+                    <span>{isSubmitting ? "Отправка..." : "ОТПРАВИТЬ БРИФ"}</span>
                     <FontAwesomeIcon icon={faArrowRight}/>
                 </button>
             </div>
 
         </form>
+
+        <ModalMessage
+            status={submitStatus}
+            onClose={() => setSubmitStatus(null)}
+        />
+        </>
     )
 }
 

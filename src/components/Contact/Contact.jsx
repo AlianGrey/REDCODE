@@ -6,54 +6,100 @@ import {
     faEnvelope,
     // faTelegram,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import webformTitle from "../../assets/images/contacts_webform-title.png";
+import emailjs from "@emailjs/browser";
+import ModalMessage from "../ModalMessage/ModalMessage";
 
+import webformTitle from "../../assets/images/contacts_webform-title.png";
 import './Contact.scss'
 
 const contactSchema = z.object({
     name: z
-        .string(),
+        .string()
+        .min(3, "Введите ваше имя. Минимум 3 символа."),
     contact: z
         .string()
         .trim()
-        .min(3,"Укажите контакт для связи"),
+        .min(3,"Укажите контакт для связи. Минимум 3 символа."),
     message: z
         .string()
         .trim()
-        .min(3,"Это поле обязательно для заполнения"),
+        .min(3,"Это поле обязательно для заполнения. Минимум 3 символа."),
     consent: z
         .boolean()
         .refine(value => value === true, {
-            message: "Необходимо согласиться с обработкой персональных данных",
+            message: "Необходимо согласие на обработку персональных данных",
         }),
+
+    // Скрытое поле для обнаружения ботов
+    website: z.string().optional(),
 });
 
 function Contact() {
+    const [submitStatus, setSubmitStatus] = useState(null);
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        reset,
+        formState: { 
+            errors,
+            isSubmitting},
     } = useForm( { 
         resolver: zodResolver(contactSchema), 
+        mode: "onBlur",
+        defaultValues: {
+            name: "",
+            contact: "",
+            message: "",
+            consent: false,
+        },
     } );
 
-    const onSubmit = (data) => {
-        console.log(data);
-    }
+    const onSubmit = async(data) => {
+        if (data.website) {
+            return;
+        }
+        setSubmitStatus(null);
+
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    name: data.name, 
+                    contact: data.contact, 
+                    message: data.message
+                },
+                {
+                    publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+                }
+            );
+            setSubmitStatus("success");
+            reset();
+        } catch (error) {
+            console.error("Error sending email:", error);
+            setSubmitStatus("error");
+        }
+    };
 
     return ( 
         <section className="contacts">
             <div className="container">
                 <div className="contacts__left">
+
                     <h2 className="contacts__title">
                         <img src={webformTitle} alt="СВЯЗАТЬСЯ С НАМИ" />
                     </h2>
 
-                    <form className="contacts__form" onSubmit={handleSubmit(onSubmit)}>     
+                    <form 
+                        className="contacts__form" 
+                        onSubmit={handleSubmit(onSubmit)}
+                    >     
                         
                         <div className="contacts__form-field">
                             <FontAwesomeIcon icon={faUser} className="contacts__form-field__icon" />
@@ -64,6 +110,9 @@ function Contact() {
                                 {...register("name")}
                             />
                         </div>
+                        {errors.name && (
+                            <p className="contacts__form__error">{errors.name.message}</p>
+                        )}
 
                         <div className="contacts__form-field">
                             <FontAwesomeIcon icon={faEnvelope} className="contacts__form-field__icon" />
@@ -75,7 +124,7 @@ function Contact() {
                             />
                         </div>
                         {errors.contact && (
-                            <p className="error">{errors.contact.message}</p>
+                            <p className="contacts__form__error">{errors.contact.message}</p>
                         )}
 
                         <textarea
@@ -84,14 +133,14 @@ function Contact() {
                             {...register("message")}
                         />
                         {errors.message && (
-                            <p className="error">{errors.message.message}</p>
+                            <p className="contacts__form__error">{errors.message.message}</p>
                         )}
 
                         <div className="contacts__form-consent">
                             <input
                                 id="consent"
                                 type="checkbox"
-                                {...register("consent", {required: "Необходимо согласить с обработкой персональных данных",})}
+                                {...register("consent")}
                             />
 
                             <label htmlFor="consent">
@@ -101,14 +150,32 @@ function Contact() {
                         </div>
 
                         {errors.consent && (
-                            <p className="error">{errors.consent.massage}</p>
+                            <p className="contacts__form__error">{errors.consent.message}</p>
                         )}
 
-                        <button type="submit" className="contacts__submit btn btn-red">
+                        <div className="contacts__form__honeypot" aria-hidden="true">
+                            <input
+                                type="text"
+                                {...register("website")}
+                                tabIndex={-1}
+                                autoComplete="off"
+                            />
+                        </div>
+
+                        <button 
+                            type="submit" 
+                            className="contacts__submit btn btn-red"
+                            disabled={isSubmitting}
+                            >
                             <FontAwesomeIcon icon={faArrowRightLong} />
-                            <span>Отправить</span>                    
+                            <span>{isSubmitting ? "Отправка..." : "Отправить"}</span>
                         </button>
+
                     </form>
+                    <ModalMessage
+                        status={submitStatus}
+                        onClose={() => setSubmitStatus(null)}
+                    />
                 </div>
 
 

@@ -88,6 +88,7 @@ const PortfolioPage = () => {
                 buttonText="Заполнить бриф" 
                 buttonLink="/brief" 
                 btn_icon={faArrowRight}
+                btn_class="btn btn-light-red"
             />
 
         </>

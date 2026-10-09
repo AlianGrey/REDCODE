@@ -18,7 +18,7 @@ export const briefSchema = z.object({
         .min(1, 'Выберете тип проекта'),
     projectDescription: z
         .string()
-        .min(20, 'Расскажите немного подробнее о своём проекте'),
+        .min(10, 'Расскажите немного подробнее о своём проекте'),
     audience: z
         .string()
         .optional(),
@@ -33,5 +33,12 @@ export const briefSchema = z.object({
         .optional(),
     budget: z
         .string()
-        .optional()
+        .optional(),
+    consent: z
+        .boolean()
+        .refine(value => value === true, {
+            message: "Необходимо согласие на обработку персональных данных",
+        }),
+    // Скрытое поле для обнаружения ботов
+    website: z.string().optional(),
 })

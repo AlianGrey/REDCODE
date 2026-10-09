@@ -421,40 +421,15 @@ function ServicesPage() {
 
       {/* Bref */}
       <Cta 
-        main_icon="faComments" 
+        main_icon={faComments} 
+        subtitle="Есть идея?"
         title="Не знаете с чего начать?" 
         description="Расскажите о своей задаче - вместе подберём подходящее решение." 
-        btn_icon="faArrowRight" buttonText="Заполнить бриф" 
+        btn_icon={faArrowRight} buttonText="Заполнить бриф" 
         buttonLink="/brief"
+        btn_class="btn btn-white"
       />
       
-      <section className="services-cta">
-
-        <div className="container">
-
-          <div className="services-cta__inner">
-
-            <div className="services-cta__icon">
-              <FontAwesomeIcon icon={faComments} />
-            </div>
-
-            <div>
-              <h3>Не знаете с чего начать?</h3>
-              <p>Расскажите о своей задаче - вместе подберём подходящее решение.</p>
-            </div>
-
-            <Link to="/brief" className="services-button btn btn-white">
-              Заполнить бриф
-              <FontAwesomeIcon icon={faArrowRight} />
-            </Link>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
     </main>
 
     </>

@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -13,9 +15,17 @@ function ProjectGallery({ images }) {
 
   return (
     <div className="project-gallery">
+
+      <button className="swiper-button-prev swiper-navigation-icon" type="button" aria-label="Предыдущее изображение">
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </button>
+      
       <Swiper
         modules={[Navigation]}
-        navigation
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }}
         spaceBetween={20}
         slidesPerView={3}
         breakpoints={{
@@ -39,6 +49,11 @@ function ProjectGallery({ images }) {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <button className="swiper-button-next swiper-navigation-icon" type="button" aria-label="Следующее изображение">
+        <FontAwesomeIcon icon={faChevronRight} />
+      </button>
+    
     </div>
   );
 }

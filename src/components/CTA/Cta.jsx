@@ -2,7 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faComments } from '@fortawesome/free-solid-svg-icons';
 import './Cta.scss';
 
-function Cta({ main_icon, subtitle, title, description, buttonText, buttonLink, btn_icon }) { 
+function Cta({ 
+    main_icon, 
+    subtitle, 
+    title, 
+    description, 
+    buttonText, 
+    buttonLink, 
+    btn_icon,
+    btn_class
+
+}) { 
 
     return (
         <section className={`cta ${subtitle ? 'cta--with-subtitle' : 'cta--without-subtitle'}`}>
@@ -15,7 +25,7 @@ function Cta({ main_icon, subtitle, title, description, buttonText, buttonLink, 
                     <h2 className="cta__title">{title}</h2>
                     <p className="cta__description">{description}</p>
                 </div>
-                <a href={buttonLink} className="cta__button btn btn-light-red">
+                <a href={buttonLink} className={`cta__button ${btn_class}`}>
                     <span>{buttonText}</span>
                     <FontAwesomeIcon icon={btn_icon} />
                 </a>

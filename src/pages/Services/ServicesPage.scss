@@ -467,30 +467,29 @@
 /* ============================================
    Brief CTA
 ============================================ */
-
-.services-cta {
+.services-page .cta {
     padding: 60px 0;
     background: var(--red-bg-ctablock);
     color: #fff;
 
-    &__inner {
-        display: grid;
+    .container {
         grid-template-columns: 80px 1fr auto;
-        align-items: center;
-        gap: 30px;
     }
 
-    &__icon {
+    &__image {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 65px;
         height: 65px;
         font-size: 45px;
+        color: var(--white);
     }
 
-    h3 {
-        margin: 0px 0px 15px 0px;
+    &__title {
+        text-transform: none;
+        font-size: 1.9em;
+        color: #fff;
     }
 
     p {
@@ -498,12 +497,14 @@
         font-size: 1.1em;
     }
 
+    .btn {
+        border-radius: 5px;
+    }
+
     a {
         color: var(--red-bg-ctablock);
     }
 }
-
-
 
 
 /* ============================================
