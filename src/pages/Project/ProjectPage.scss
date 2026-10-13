@@ -48,10 +48,10 @@
     );
   border-radius: 0 0 50% 0;
 
-  &::after {
+  .container::after {
     content: "";
     position: absolute;
-    right: -100px;
+    right: 208px;
     top: -208px;
     width: 430px;
     height: 430px;
@@ -127,6 +127,7 @@
     margin: 0 0 26px;
     color: var(--light-blue);
     line-height: 1.8;
+    white-space: pre-line;
   }
 
   &__tags {
@@ -207,7 +208,7 @@
 ===================================== */
 
 .project-details {
-  padding: 82px 0 64px;
+  padding: 50px 0 64px;
 
   &__grid {
     display: grid;
@@ -218,6 +219,16 @@
 
   &__main {
     min-width: 0;
+    white-space: pre-line;
+        
+    p {
+        margin-bottom: 16px;
+        line-height: 1.7;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
   }
 
   &__description {
@@ -225,6 +236,55 @@
     color: var(--project-text);
     font-size: 15px;
     line-height: 1.9;
+
+    h4 {
+      font-size: 16px;
+      padding-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      padding-bottom: 15px;
+    }
+
+    ul li {
+      margin: 0px 0px 10px 30px;
+      line-height: 1.7;
+      list-style: square;
+      padding-left: 10px;
+
+      &::marker {
+        color: var(--bright-blue);
+      }
+    }
+
+    .iconlist {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      margin: 8px 0px 12px 0px;
+      line-height: 1.7;
+      
+      &__li {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+     &__icon {
+      justify-content: center;
+      width: 40px;
+      height: 100%;
+      color: rgba(48, 99, 178, 0.56);
+      font-size: 2.5em;
+     }
+
+    }
+
+
+
   }
 
   &__date {

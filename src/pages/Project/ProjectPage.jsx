@@ -103,7 +103,9 @@ function ProjectPage() {
 
                                 <h2 className="project-section-title section-title">Задача и решение</h2>
 
-                                <p className="project-details__description">{full_description}</p>
+                                <div className="project-details__description">
+                                    {full_description}
+                                </div>
 
                                 {date && (
                                     <p className="project-details__date">
